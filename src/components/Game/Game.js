@@ -4,6 +4,7 @@ import { sample } from '../../utils';
 import { WORDS } from '../../data';
 import { GuessInput } from '../GuessInput/GuessInput'
 import { GuessResults } from '../GuessResults/GuessResults'
+import { checkGuess } from '../../game-helpers'
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
@@ -14,7 +15,7 @@ function Game() {
   const [guesses, setGuesses] = useState([])
   return <>
     <GuessResults guesses={guesses}/>
-    <GuessInput onGuess={guess => setGuesses([...guesses, guess])}/>
+    <GuessInput onGuess={guess => setGuesses([...guesses, checkGuess(guess, answer)])}/>
   </>;
 }
 
