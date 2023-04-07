@@ -1,0 +1,19 @@
+import { useState } from 'react'
+
+export function GuessInput() {
+  const [input, setInput] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log({ guess: input })
+    setInput('')
+  }
+  const handleChange = e => setInput(e.target.value.toUpperCase())
+
+  return (
+    <form className="guess-input-wrapper" onSubmit={handleSubmit}>
+      <label htmlFor="guess-input">Enter guess:</label>
+      <input type="text" id="guess-input" value={input} onChange={handleChange} pattern={'.{5,5}'}/>
+    </form>
+  )
+}
