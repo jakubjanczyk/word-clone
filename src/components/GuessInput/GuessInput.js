@@ -13,7 +13,7 @@ export function GuessInput({onGuess}) {
   return (
     <form className="guess-input-wrapper" onSubmit={handleSubmit}>
       <label htmlFor="guess-input">Enter guess:</label>
-      <input type="text" id="guess-input" value={input} onChange={handleChange} pattern={'.{5,5}'}/>
+      <input type="text" id="guess-input" value={input} onChange={handleChange} pattern={'.{5,5}'} maxLength={5}/>
     </form>
   )
 }
