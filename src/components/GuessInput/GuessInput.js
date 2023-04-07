@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
-export function GuessInput() {
+export function GuessInput({onGuess}) {
   const [input, setInput] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log({ guess: input })
+    onGuess(input)
     setInput('')
   }
   const handleChange = e => setInput(e.target.value.toUpperCase())
