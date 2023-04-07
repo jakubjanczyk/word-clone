@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export function GuessInput({onGuess}) {
+export function GuessInput({onGuess, isOver}) {
   const [input, setInput] = useState('')
 
   const handleSubmit = (e) => {
@@ -13,7 +13,7 @@ export function GuessInput({onGuess}) {
   return (
     <form className="guess-input-wrapper" onSubmit={handleSubmit}>
       <label htmlFor="guess-input">Enter guess:</label>
-      <input type="text" id="guess-input" value={input} onChange={handleChange} pattern={'.{5,5}'} maxLength={5}/>
+      <input type="text" id="guess-input" value={input} onChange={handleChange} pattern={'.{5,5}'} maxLength={5} disabled={isOver}/>
     </form>
   )
 }
